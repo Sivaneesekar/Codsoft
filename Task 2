@@ -1,0 +1,58 @@
+```
+import java.util.Scanner;
+
+public class StudentGradeCalculator {
+ public static void main(String[] args) {
+  Scanner scanner = new Scanner(System.in);
+
+  System.out.println("Enter marks for subject 1 (out of 100): ");
+  int marks1 = scanner.nextInt();
+
+  System.out.println("Enter marks for subject 2 (out of 100): ");
+  int marks2 = scanner.nextInt();
+
+  System.out.println("Enter marks for subject 3 (out of 100): ");
+  int marks3 = scanner.nextInt();
+
+  int totalMarks = calculateTotalMarks(marks1, marks2, marks3);
+
+  double averagePercentage = calculateAveragePercentage(totalMarks, 3);
+
+  String grade = calculateGrade(averagePercentage);
+
+  displayResults(totalMarks, averagePercentage, grade);
+ }
+
+ public static int calculateTotalMarks(int... marks) {
+  int total = 0;
+  for (int mark : marks) {
+   total += mark;
+  }
+  return total;
+ }
+
+ public static double calculateAveragePercentage(int totalMarks, int numSubjects) {
+  return (totalMarks / (double) numSubjects) / 100 * 100;
+ }
+
+ public static String calculateGrade(double averagePercentage) {
+  if (averagePercentage >= 90) {
+   return "A";
+  } else if (averagePercentage >= 80) {
+   return "B";
+  } else if (averagePercentage >= 70) {
+   return "C";
+  } else if (averagePercentage >= 60) {
+   return "D";
+  } else {
+   return "F";
+  }
+ }
+
+ public static void displayResults(int totalMarks, double averagePercentage, String grade) {
+  System.out.println("Total Marks: " + totalMarks);
+  System.out.println("Average Percentage: " + averagePercentage + "%");
+  System.out.println("Grade: " + grade);
+ }
+}
+```
